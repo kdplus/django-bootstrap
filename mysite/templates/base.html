@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+	<style type='css'>
+	.container.row.row.main {padding:15px;
+}
+
+
+    </style>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	<link href="/css/bootstrap-select.min.css" rel="stylesheet" media="screen" />
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap-select.min.js"></script>
+	<script type="text/javascript">	
+	function changeAction(){
+		var selectValue=document.getElementById('search-en').value;
+		document.forms[0].action=selectValue;
+		if(selectValue=="http://www.baidu.com/baidu")
+			document.forms[0].wp.name="word";
+		else document.forms[0].wp.name="q";
+	}
+	</script>
+	
+</head>
+
+<body style="background-color: #CCCCCC">
+	<div class="container" >
+		<div class="row">
+			<h1>Your helpful site</h1>
+			
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">誉锡</a>
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="http://64.233.168.54">Google</a></li>
+						<li><a href="http://www.baidu.com">Baidu</a></li>
+					</ul>
+				</div>
+			</nav>
+			
+			<div id='content' class='row'>
+						<div class='col-md-8 main'>
+							<h2>See Here</h2>
+							{% block content %}{% endblock %}
+						</div>
+							  
+						<div class='col-md-4 sidebar'>
+							<h2>Link bar</h2>
+							
+							<form action="http://64.233.168.54/search" target="_blank" class="form-search" > 
+								<table bgcolor="#FFFFFF"><tr><td>
+									<div class='row'>
+										
+											<select id="search-en" class="selectpicker show-tick" onchange="changeAction();">
+												<option value="http://64.233.168.54/search">Google</option>
+												<option value="http://www.baidu.com/baidu">Baidu</option>
+											</select>
+									
+									
+											<input id=wp type=text name='q' class="form-control" placeholder=".col-md-3"> 
+									
+										<input type="submit" value="Search" class="btn" > 
+									</div>
+								</td></tr></table> 
+							</form>
+
+							<ul class="nav nav-tabs nav-stacked">
+								<li><a href='http://electsys.sjtu.edu.cn/edu/'>上海交通大学教学信息服务网</a></li>
+								<li><a href='http://www.jwc.sjtu.edu.cn/web/sjtu/198001.htm'>上海交通大学教务处</a></li>
+								<li><a href='#'>Another Link 3</a></li>
+							</ul>
+						</div>
+			</div>
+			
+			{% block footer %}
+			<hr>
+			<p>Thanks for visiting my site.</p>
+			{% endblock %}
+		</div>
+	</div>
+	<script type="text/javascript">
+							$(function(){
+
+							//下拉菜单
+							$('.selectpicker').selectpicker({noneSelectedText:'请选择'});
+							$('.selectpicker').selectpicker('val',$('.selectpicker').attr('value'));
+
+							})
+							</script>
+</body>
+</html>
