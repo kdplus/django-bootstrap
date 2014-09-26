@@ -55,24 +55,18 @@
 							  
 						<div class='col-md-4 sidebar'>
 							<h2>Link bar</h2>
-							
+							<div class='row'>
 							<form action="http://64.233.168.54/search" target="_blank" class="form-search" > 
-								<table bgcolor="#FFFFFF"><tr><td>
-									<div class='row'>
-										
-											<select id="search-en" class="selectpicker show-tick" onchange="changeAction();">
-												<option value="http://64.233.168.54/search">Google</option>
-												<option value="http://www.baidu.com/baidu">Baidu</option>
-											</select>
-									
-									
-											<input id=wp type=text name='q' class="form-control" placeholder="search"> 
-									
-										<input type="submit" value="Search" class="btn" > 
-									</div>
+								<table bgcolor="#FFFFFF" ><tr><td>
+								    <select id="search-en"  onchange="changeAction();">
+										<option value="http://64.233.168.54/search">Google</option>
+										<option value="http://www.baidu.com/baidu">Baidu</option>
+									</select>					
+									<input id=wp type=text name='q' class="form " placeholder="search"> 
+									<input type="submit" value="Search" class="btn" > 
 								</td></tr></table> 
 							</form>
-
+							</div>
 							<ul class="nav nav-tabs nav-stacked">
 								<li><a href='http://electsys.sjtu.edu.cn/edu/'>上海交通大学教学信息服务网</a></li>
 								<li><a href='http://www.jwc.sjtu.edu.cn/web/sjtu/198001.htm'>上海交通大学教务处</a></li>
